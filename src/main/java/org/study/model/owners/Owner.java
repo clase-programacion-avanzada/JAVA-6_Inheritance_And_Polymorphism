@@ -1,12 +1,34 @@
-package org.study.model;
+package org.study.model.owners;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.study.services.enums.OwnerTypesEnum;
 
+import static org.study.services.enums.OwnerTypesEnum.PREMIUM;
+import static org.study.services.enums.OwnerTypesEnum.REGULAR;
+
+
+
+
+/*
+* Let talk about abstract classes
+* abstract classes have the 'abstract' keyword in the class declaration
+* these classes are classes that cannot be instantiated
+* and are used to define common behavior for subclasses.
+* This means that abstract classes are used to define common attributes and methods for subclasses.
+*
+* The abstract keyword can be used for attributes and methods.
+* if an attribute is declared as abstract, it means that the attribute must be implemented in the subclasses.
+* if a method is declared as abstract, it means that the method must be implemented in the subclasses.
+*
+*
+* Reference: https://www.javatpoint.com/abstract-class-in-java
+* Reference: https://www.geeksforgeeks.org/abstract-classes-in-java/
+* */
 public class Owner implements Serializable {
-    private static final String PASSWORD_PATTERN = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$";
+    private static final String PASSWORD_PATTERN = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
 
     private final static int MINIMUM_AGE = 18; // Minimum allowed age
 
@@ -14,27 +36,25 @@ public class Owner implements Serializable {
 
     private static final String PHONE_PATTERN = "^[0-9]{10}$";
 
-    //ZIP CODE REGEX: https://stackoverflow.com/questions/578406/what-is-the-ultimate-postal-code-and-zip-regex
-    private static final String ZIP_PATTERN = "^[0-9]{5}(?:-[0-9]{4})?$";
 
     private static final String USERNAME_PATTERN = "^[a-zA-Z][a-zA-Z0-9_]{7,30}$";
 
     // Attributes of the Owner class
     private UUID id;
-    private String name;
-    private String username;
-    private String email;
-    private String password;
+    protected String name;
+    protected String username;
+    protected String email;
+    protected String password;
 
-    private int age;
-    private String phone;
-    private String address;
-    private String city;
-    private String state;
-    private String zip;
-    private String country;
+    protected int age;
+    protected String phone;
+    protected String address;
+    protected String city;
+    protected String state;
+    protected String zip;
+    protected String country;
 
-    List<UUID> animalIds;
+    protected List<UUID> animalIds;
 
 
     public Owner (String id,
@@ -119,6 +139,28 @@ public class Owner implements Serializable {
         this.country = country;
         this.animalIds = new ArrayList<>();
     }
+
+    public static Owner getOwnerFromType(OwnerTypesEnum type,
+                                         String id,
+                                         String name,
+                                         String username,
+                                         String email,
+                                         String password,
+                                         int age,
+                                         String phone,
+                                         String address,
+                                         String city,
+                                         String state,
+                                         String country,
+                                         String zipcode) {
+
+        return switch (type) {
+            case REGULAR -> new RegularOwner(id, name, username, email, password, age, phone, address, city, state, country, zipcode);
+            case PREMIUM -> new PremiumOwner(id, name, username, email, password, age, phone, address, city, state, country, zipcode);
+        };
+
+    }
+
 
     private void validateConstructor(String id,
                                      String name,
@@ -274,13 +316,14 @@ public class Owner implements Serializable {
         // Step 3: Check if the provided password is less than 8 characters and includes at least one number and one letter and one special character and one uppercase letter
         if (!password.matches(PASSWORD_PATTERN)) {
             throw new IllegalArgumentException(
+                password + " must be in the appropriate format\n" +
                 """
                     At least one upper case English letter
                     At least one lower case English letter
                     At least one digit
                     At least one special character or space from the following: #?!@$ %^&*-
                     Minimum eight in length
-                    """);
+                    """ );
         }
     }
 
@@ -331,10 +374,6 @@ public class Owner implements Serializable {
             throw new IllegalArgumentException("Zip cannot be empty");
         }
 
-        // Step 3: Check if the provided zip is in the correct format
-        if (!zip.matches(ZIP_PATTERN)) {
-            throw new IllegalArgumentException("Zip must be in the appropriate format");
-        }
     }
 
     private void validateCountry(String country) {
@@ -512,6 +551,15 @@ public class Owner implements Serializable {
             zip + delimiter +
             country + delimiter +
             animalIds ;
+    }
+
+    //public abstract String getType();
+    public String getType() {
+        return "No Type";
+    }
+
+    public String getDiscount() {
+        return "0%";
     }
 
 

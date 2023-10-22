@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import org.study.exceptions.NotFoundException;
-import org.study.model.Owner;
+import org.study.model.owners.Owner;
 import org.study.exceptions.UserNameAlreadyTakenException;
 
 public class OwnerService {
@@ -194,5 +194,9 @@ public class OwnerService {
             )
             .toList();
 
+    }
+
+    public List<Owner> getOwners() {
+        return new ArrayList<>(ownersById.values());
     }
 }

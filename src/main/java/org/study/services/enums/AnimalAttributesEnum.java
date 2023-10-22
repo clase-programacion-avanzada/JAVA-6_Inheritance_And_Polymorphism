@@ -31,10 +31,15 @@ Enums are particularly useful for scenarios where you want to represent a collec
 such as options, states, or headers, as demonstrated in this AnimalCSVHeaders enum.*/
 public enum AnimalAttributesEnum {
 
-    ID(0, "id"),
-    NAME(1, "name"),
-    AGE(2, "age"),
-    OWNERS(3, "owners");
+    TYPE(0, "type"),
+    ID(1, "id"),
+    NAME(2, "name"),
+    AGE(3, "age"),
+
+    BREED(4, "breed"),
+
+    CAT_OWNERS(4, "owners"),
+    DOG_OWNERS(5, "owners");
 
     private int index;
     private String headerName;
@@ -48,6 +53,15 @@ public enum AnimalAttributesEnum {
     AnimalAttributesEnum(int index, String headerName) {
         this.index = index;
         this.headerName = headerName;
+    }
+
+    public static AnimalAttributesEnum fromString(String value) {
+        for (AnimalAttributesEnum b : AnimalAttributesEnum.values()) {
+            if (b.headerName.equalsIgnoreCase(value)) {
+                return b;
+            }
+        }
+        return null;
     }
 
     /**

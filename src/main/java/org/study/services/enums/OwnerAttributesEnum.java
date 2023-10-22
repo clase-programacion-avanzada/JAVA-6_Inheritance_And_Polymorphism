@@ -2,20 +2,21 @@ package org.study.services.enums;
 
 public enum OwnerAttributesEnum {
 
-    ID(0,"id"),
-    NAME(1,"name"),
-    USERNAME(2,"username"),
-    EMAIL(3,"email"),
-    PASSWORD(4,"password"),
-    AGE(5,"age"),
-    PHONE(6,"phone"),
-    ADDRESS(7,"address"),
-    CITY(8,"city"),
-    STATE(9,"state"),
-    COUNTRY(10,"country"),
+    TYPE(0,"type"),
+    ID(1,"id"),
+    NAME(2,"name"),
+    USERNAME(3,"username"),
+    EMAIL(4,"email"),
+    PASSWORD(5,"password"),
+    AGE(6,"age"),
+    PHONE(7,"phone"),
+    ADDRESS(8,"address"),
+    CITY(9,"city"),
+    STATE(10,"state"),
+    COUNTRY(11,"country"),
 
-    ZIPCODE(11, "zipcode"),
-    ANIMAL_IDS(12, "animalIds");
+    ZIPCODE(12, "zipcode"),
+    ANIMAL_IDS(13, "animalIds");
 
     private int index;
 

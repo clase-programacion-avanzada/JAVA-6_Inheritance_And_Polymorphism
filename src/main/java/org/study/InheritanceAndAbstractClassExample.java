@@ -5,16 +5,85 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.study.model.animals.Animal;
 import org.study.model.animals.Cat;
 import org.study.model.animals.Dog;
 import org.study.model.animals.Puppy;
+import org.study.model.owners.Owner;
+import org.study.model.owners.PremiumOwner;
+import org.study.model.owners.RegularOwner;
+import org.study.services.AnimalService;
+import org.study.services.FileService;
+import org.study.services.OwnerService;
 
-public class InheritanceExample {
+public class InheritanceAndAbstractClassExample {
 
     public static void main(String[] args) {
         //This is an example about how to use inheritance
+
+        //Let's talk about inheritance
+        //Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object
+        //It is an important part of OOPs (Object Oriented programming system)
+
+        Owner owner = new Owner("Juan",
+            "Juan_2342",
+            "email_2342@example.com",
+            "Password_!!789",
+            21,
+            "0123456789",
+    "Calle 1234",
+            "Cali",
+            "Valle del Cauca",
+            "Colombia",
+            "12354");
+
+        //The idea behind inheritance in Java is that you can create new classes that are built upon existing classes
+        //When you inherit from an existing class, you can reuse methods and fields of the parent class
+
+        Owner regularOwner = new RegularOwner(
+            "Andres",
+            "Andres_1245",
+            "email_2343@example.com",
+            "Password_!!789",
+            25,
+            "0123456789",
+            "Calle 1234",
+            "Cali",
+            "Valle del Cauca",
+            "Colombia",
+            "110131"
+        );
+
+        Owner premiumOwner = new PremiumOwner(
+            "Ana",
+            "Ana_maria_1245",
+            "email_2443@example.com",
+            "Password_!!789",
+            25,
+            "0123456789",
+            "Calle 1234",
+            "Cali",
+            "Valle del Cauca",
+            "Colombia",
+            "110131"
+        );
+
+        List<Owner> owners = List.of(owner, regularOwner, premiumOwner);
+
+        System.out.println("""
+        
+            Printing the owners discount:""");
+        owners.stream()
+            .forEach(ownerFromList -> System.out.println(ownerFromList.getDiscount()));
+
+        System.out.println("""
+        
+            Printing the owners type:""");
+        owners.stream()
+            .forEach(ownerFromList -> System.out.println(ownerFromList.getType()));
+
+        //We call this process of calling a method with the same name but different implementations polymorphism
+
 
         //We will create a class called Animal that is abstract, this means that we cannot instantiate it
         //Animal pancracio = new Animal("Pancracio",5);
@@ -105,9 +174,12 @@ public class InheritanceExample {
         //We will write a file with the animals using the toTextLine method
 
         try{
+
+            List<String> lines = new ArrayList<>();
             for(Animal animal : animals) {
-                Files.writeString(Path.of("animals.txt"), animal.toTextLine(";") + "\n");
+                lines.add(animal.toTextLine(";"));
             }
+            Files.write(Path.of("animals.txt"),lines);
 
 
         } catch (IOException e) {
@@ -143,17 +215,28 @@ public class InheritanceExample {
                 Animal animal = getAnimalFromLine(animalData);
                 animalsFromFile.add(animal);
             }
-
+            System.out.println("""
+            
+                Printing the animals from the file:""");
             animalsFromFile.stream().forEach(System.out::println);
 
+            System.out.println("""
+            
+                Printing the animals from the file using the getAnimalFromLine method:""");
             lines.stream()
                 .map(line -> line.split(";"))
-                .map(InheritanceExample::getAnimalFromLine)
+                .map(InheritanceAndAbstractClassExample::getAnimalFromLine)
                 .forEach(System.out::println);
+
+
 
         } catch (IOException e) {
             System.out.println("Something went wrong when reading the file");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
+
+
 
 
     }

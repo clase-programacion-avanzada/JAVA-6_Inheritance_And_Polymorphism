@@ -1,4 +1,4 @@
-package org.study.model;
+package org.study.model.animals;
 
 import java.io.Serializable;
 import java.text.ParseException;

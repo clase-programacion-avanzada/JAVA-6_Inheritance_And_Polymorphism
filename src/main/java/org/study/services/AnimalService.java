@@ -8,8 +8,11 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import org.study.exceptions.NotFoundException;
-import org.study.model.Animal;
-import org.study.model.Vaccine;
+import org.study.model.animals.Animal;
+import org.study.model.animals.Cat;
+import org.study.model.animals.Dog;
+import org.study.model.animals.Puppy;
+import org.study.model.animals.Vaccine;
 
 
 public class AnimalService {
@@ -23,18 +26,46 @@ public class AnimalService {
     }
 
     /**
-     * Adds a new animal to the animal list.
+     * Adds a new animal to the animal list. As Animal is abstract this will be deprecated
      *
      * @param name The name of the animal.
      * @param age  The age of the animal.
      */
+    /*
     public void addAnimalToDatabase(String name, int age) {
         // Create a new Animal object with the given name and age.
         Animal animal = new Animal(name, age);
 
         // Add the newly created animal to the animal list.
         this.animalList.add(animal);
+    }*/
+
+
+    public void addDogToDatabase(String name, int age, String breed) {
+        // Create a new Animal object with the given name and age.
+        Animal animal = new Dog(name, age, breed);
+
+        // Add the newly created animal to the animal list.
+        this.animalList.add(animal);
     }
+
+    public void addCatToDatabase(String name, int age) {
+        // Create a new Animal object with the given name and age.
+        Animal animal = new Cat(name, age);
+
+        // Add the newly created animal to the animal list.
+        this.animalList.add(animal);
+    }
+
+    public void addPuppyToDatabase(String name, int age, String breed) {
+        // Create a new Animal object with the given name and age.
+        Animal animal = new Puppy(name, age, breed);
+
+        // Add the newly created animal to the animal list.
+        this.animalList.add(animal);
+    }
+
+
 
 
     /**
@@ -454,6 +485,11 @@ public class AnimalService {
     public void addVaccineToAnimalInQueue(AttentionQueueService attentionQueueService, String brand, int volume) {
 
             Animal animal = attentionQueueService.attendAnimal();
+            //animal.
             animal.addVaccine(volume, brand);
+    }
+
+    public List<Animal> getAnimals() {
+        return new ArrayList<>(animalList);
     }
 }

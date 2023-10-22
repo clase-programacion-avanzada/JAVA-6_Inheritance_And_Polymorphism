@@ -2,7 +2,7 @@ package org.study.services;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import org.study.model.Animal;
+import org.study.model.animals.Animal;
 
 public class AttentionQueueService {
 

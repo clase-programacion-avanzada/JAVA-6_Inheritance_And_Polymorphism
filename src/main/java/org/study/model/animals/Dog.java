@@ -1,4 +1,4 @@
-package org.study.model;
+package org.study.model.animals;
 
 /*
 * Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object.
@@ -31,6 +31,18 @@ public class Dog extends Animal {
 
     }
 
+    public Dog(String id, String name, int age, String breed) {
+        super(id, name, age);
+
+        this.breed = breed;
+    }
+
+    public Dog(String id, String name, int age, String breed, String[] ownerIds) {
+        super(id, name, age, ownerIds);
+
+        this.breed = breed;
+    }
+
     public String getBreed() {
         return breed;
     }
@@ -38,9 +50,13 @@ public class Dog extends Animal {
     //We can override the methods of the superclass using the @Override annotation
     //In this case, we are overriding the method speak() of the class Animal
     //We are changing the implementation of the method speak() for the class Dog
-    @Override
+
     public String speak() {
         return "Woof!";
+    }
+
+    public String toTextLine(String delimiter) {
+        return "Dog" + delimiter + super.getName() + delimiter + super.getAge() + delimiter + breed;
     }
 
     @Override
@@ -51,4 +67,19 @@ public class Dog extends Animal {
             "and is a " + breed + " has " + super.getVaccines().size() + " vaccines" +
             '}';
     }
+
+    public String toCSV(String delimiter) {
+        return "Dog" + delimiter
+            + super.getId()
+            + delimiter + this.name
+            + delimiter + this.age
+            + delimiter + this.breed
+            + delimiter + this.getOwnerIdsAsString();
+    }
+
+    @Override
+    public String caress() {
+        return "I'm wagging my tail!";
+    }
+
 }

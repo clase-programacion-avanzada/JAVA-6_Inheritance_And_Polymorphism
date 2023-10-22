@@ -15,11 +15,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.study.exceptions.NotFoundException;
-import org.study.model.Animal;
-import org.study.model.Owner;
-import org.study.model.Vaccine;
+import org.study.model.animals.Animal;
+import org.study.model.animals.Cat;
+import org.study.model.animals.Dog;
+import org.study.model.animals.Puppy;
+import org.study.model.owners.Owner;
+import org.study.model.animals.Vaccine;
 import org.study.services.enums.AnimalAttributesEnum;
+import org.study.services.enums.AnimalTypesEnum;
 import org.study.services.enums.OwnerAttributesEnum;
+import org.study.services.enums.OwnerTypesEnum;
 import org.study.services.enums.VaccineAttributesEnum;
 
 public class FileService {
@@ -95,26 +100,15 @@ public class FileService {
             String[] values = line.split(delimiter);
 
             // Extract animal data from the CSV line.
-            String id =
-                values[AnimalAttributesEnum.ID.getIndex()];
-            String name =
-                values[AnimalAttributesEnum.NAME.getIndex()];
-            int age =
-                Integer.valueOf(values[AnimalAttributesEnum.AGE.getIndex()]);
+            String type =
+                values[AnimalAttributesEnum.TYPE.getIndex()];
+
 
             // Create an Animal object and add it to the animalList.
-            Animal animal = new Animal(id, name, age);
 
-            // Extract owner IDs from the CSV line.
-            // ids in the CSV file: {id1,id2,id3}
-            String ownerIds =
-                extractElementsBetweenCurlyBraces(values[AnimalAttributesEnum.OWNERS.getIndex()]);
+            AnimalTypesEnum animalType = AnimalTypesEnum.fromString(type);
 
-            String [] ownerIdsArray = splitAndDeleteSpaces(ownerIds, COMMA_DELIMITER);
-
-            for(String ownerId : ownerIdsArray){
-                animal.addOwnerId(UUID.fromString(ownerId));
-            }
+            Animal animal = getAnimalFromValues(values);
 
             animalList.add(animal);
         }
@@ -122,6 +116,37 @@ public class FileService {
         // Check if new animals were added by comparing the list size before and after loading.
         return animalList;
     }
+
+    private Animal getAnimalFromValues(String[] values) {
+
+        AnimalTypesEnum animalType = AnimalTypesEnum.fromString(
+            values[AnimalAttributesEnum.TYPE.getIndex()]);
+
+        String id = values[AnimalAttributesEnum.ID.getIndex()];
+        String name = values[AnimalAttributesEnum.NAME.getIndex()];
+        int age = Integer.valueOf(values[AnimalAttributesEnum.AGE.getIndex()]);
+        String breed =
+            animalType == AnimalTypesEnum.DOG || animalType == AnimalTypesEnum.PUPPY
+                ? values[AnimalAttributesEnum.BREED.getIndex()]
+                : "";
+        String ownerIds =
+            animalType == AnimalTypesEnum.CAT
+                ? values[AnimalAttributesEnum.CAT_OWNERS.getIndex()]
+                : values[AnimalAttributesEnum.DOG_OWNERS.getIndex()];
+
+        String[] ownerIdsArray = extractArrayFromValue(ownerIds);
+
+        return Animal.getAnimalFromType(animalType, id, name, age, breed, ownerIdsArray);
+
+    }
+
+    private String[] extractArrayFromValue(String value){
+        String setString = extractElementsBetweenCurlyBraces(value);
+
+        return splitAndDeleteSpaces(setString, COMMA_DELIMITER);
+
+    }
+
 
     private String extractElementsBetweenCurlyBraces(String setString){
 
@@ -225,53 +250,22 @@ public class FileService {
             // Split the line into values using the specified delimiter.
             String[] values = line.split(delimiter);
 
+
+        
             // Extract Owner data from the CSV line.
-            String id =
-                values[OwnerAttributesEnum.ID.getIndex()];
-            String name =
-                values[OwnerAttributesEnum.NAME.getIndex()];
-            String username =
-                values[OwnerAttributesEnum.USERNAME.getIndex()];
-            String email =
-                values[OwnerAttributesEnum.EMAIL.getIndex()];
-            String password =
-                values[OwnerAttributesEnum.PASSWORD.getIndex()];
-            int age =
-                Integer.valueOf(values[OwnerAttributesEnum.AGE.getIndex()]);
-            String phone =
-                values[OwnerAttributesEnum.PHONE.getIndex()];
-            String address =
-                values[OwnerAttributesEnum.ADDRESS.getIndex()];
-            String city =
-                values[OwnerAttributesEnum.CITY.getIndex()];
-            String state =
-                values[OwnerAttributesEnum.STATE.getIndex()];
-            String country =
-                values[OwnerAttributesEnum.COUNTRY.getIndex()];
-            String zipcode =
-                values[OwnerAttributesEnum.ZIPCODE.getIndex()];
+
+            
+            Owner owner = getOwnerFromValues(values);
 
             // Create an Owner object and add it to the animalList.
-            Owner owner =
-                new Owner(id,
-                    name,
-                    username,
-                    email,
-                    password,
-                    age,
-                    phone,
-                    address,
-                    city,
-                    state,
-                    country,
-                    zipcode);
+
 
             // Extract animal IDs from the CSV line.
             // animal ids in the CSV file: {id1,id2,id3}
-            String animalIds =
-                extractElementsBetweenCurlyBraces(values[OwnerAttributesEnum.ANIMAL_IDS.getIndex()]);
 
-            String [] animalIdsArray = splitAndDeleteSpaces(animalIds, COMMA_DELIMITER);
+
+            String [] animalIdsArray =
+                extractArrayFromValue(values[OwnerAttributesEnum.ANIMAL_IDS.getIndex()]);
 
             for(String ownerId : animalIdsArray){
                 owner.addAnimalId(UUID.fromString(ownerId));
@@ -282,6 +276,39 @@ public class FileService {
 
         // Check if new animals were added by comparing the list size before and after loading.
         return ownersList;
+    }
+
+    private Owner getOwnerFromValues(String[] values) {
+
+        OwnerTypesEnum type =
+            OwnerTypesEnum.fromString(
+                values[OwnerAttributesEnum.TYPE.getIndex()]);
+        String id =
+            values[OwnerAttributesEnum.ID.getIndex()];
+        String name =
+            values[OwnerAttributesEnum.NAME.getIndex()];
+        String username =
+            values[OwnerAttributesEnum.USERNAME.getIndex()];
+        String email =
+            values[OwnerAttributesEnum.EMAIL.getIndex()];
+        String password =
+            values[OwnerAttributesEnum.PASSWORD.getIndex()];
+        int age =
+            Integer.valueOf(values[OwnerAttributesEnum.AGE.getIndex()]);
+        String phone =
+            values[OwnerAttributesEnum.PHONE.getIndex()];
+        String address =
+            values[OwnerAttributesEnum.ADDRESS.getIndex()];
+        String city =
+            values[OwnerAttributesEnum.CITY.getIndex()];
+        String state =
+            values[OwnerAttributesEnum.STATE.getIndex()];
+        String country =
+            values[OwnerAttributesEnum.COUNTRY.getIndex()];
+        String zipcode =
+            values[OwnerAttributesEnum.ZIPCODE.getIndex()];
+
+        return Owner.getOwnerFromType(type, id, name, username, email, password, age, phone, address, city, state, country, zipcode);
     }
 
 

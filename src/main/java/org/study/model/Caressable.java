@@ -1,8 +1,8 @@
 package org.study.model;
 
-public interface Vaccinable {
+public interface Caressable {
 
-    public void addVaccine(int volume, String brand);
+   public String caress();
 
 
 }

@@ -1,4 +1,7 @@
-package org.study.model;
+package org.study.model.animals;
+
+import org.study.services.enums.AnimalAttributesEnum;
+
 /*
  * Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object.
  * It is an important part of OOPs (Object Oriented programming system).
@@ -21,7 +24,33 @@ public class Cat extends Animal {
         this.lives = 9;
     }
 
-    @Override
+    public Cat(String id, String name, int age) {
+        super(id, name, age);
+
+        this.lives = 9;
+
+    }
+
+    public Cat(String id, String name, int age, String[] ownerIdsArray) {
+        super(id, name, age, ownerIdsArray);
+
+        this.lives = 9;
+
+    }
+
+    public Cat(String[] values) {
+        String id = values[AnimalAttributesEnum.ID.getIndex()];
+        String name = values[AnimalAttributesEnum.NAME.getIndex()];
+        int age = Integer.parseInt(values[AnimalAttributesEnum.AGE.getIndex()]);
+        String[] ownerIdsArray = values[AnimalAttributesEnum.CAT_OWNERS.getIndex()].split(",");
+
+        super.validateConstructor(id, name, age); // Validate the provided parameters
+
+
+
+    }
+
+
     public String speak() {
         return "Meow!";
     }
@@ -33,10 +62,20 @@ public class Cat extends Animal {
             '}';
     }
 
+    public String toTextLine(String delimiter) {
+        return "Cat" + delimiter + super.getName() + delimiter + super.getAge() + delimiter + lives;
+    }
+
     public int getLives() {
         return lives;
     }
 
+    public String toCSV(String delimiter) {
+        return "Cat" + delimiter + super.toCSV(delimiter);
+    }
 
-
+    @Override
+    public String caress() {
+        return "Purrr";
+    }
 }

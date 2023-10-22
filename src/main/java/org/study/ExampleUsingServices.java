@@ -1,11 +1,10 @@
 package org.study;
 
-import java.io.File;
 import org.study.services.AnimalService;
 import org.study.services.FileService;
 import org.study.services.OwnerService;
 
-public class EcampleUsingServices {
+public class ExampleUsingServices {
 
     public static void main(String[] args) {
 
@@ -18,7 +17,7 @@ public class EcampleUsingServices {
                 "src/main/resources/animals.csv",
                 ";",
                 fileService);
-            animalService.loadAnimalsFromCSVFile(
+            animalService.loadVaccinesFromCSVFile(
                 "src/main/resources/vaccines.csv",
                 ";",
                 fileService);
@@ -27,8 +26,10 @@ public class EcampleUsingServices {
                 ";",
                 fileService);
 
-            System.out.println(animalService.getAnimals());
-            System.out.println(ownerService.getOwners());
+            animalService.getAnimals().stream()
+                .forEach(animal -> System.out.println(animal.toCSV(";")));
+            ownerService.getOwners().stream()
+                .forEach(owner -> System.out.println(owner.toCSV(";")));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

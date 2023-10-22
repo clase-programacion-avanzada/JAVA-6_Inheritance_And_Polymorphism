@@ -1,4 +1,4 @@
-package org.study.model;
+package org.study.model.animals;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,26 +6,32 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import org.study.model.Caressable;
+import org.study.services.enums.AnimalAttributesEnum;
+import org.study.services.enums.AnimalTypesEnum;
 
-public class Animal implements Serializable {
+public abstract class Animal implements Serializable, Caressable {
 
     // Attributes of the Animal class
     private UUID id;
-    private String name;
-    private int age;
+    //The protected keyword is an access modifier used for attributes and methods.
+    // It means that the attribute or method can be accessed from the same class,
+    // from classes in the same package, and from subclasses.
+    protected String name;
+    protected int age;
     private List<Vaccine> vaccines; // A list to store associated vaccines
-
+    //The private keyword is an access modifier used for attributes and methods.
+    // It means that the attribute or method can only be accessed from the same class.
+    // In this case, the attribute vaccines can only be accessed from the class Animal.
+    // The subclasses of Animal, such as Dog, cannot access the attribute vaccines directly.
+    // To access the attribute vaccines from the class Dog, we need to create a getter method in the class Animal.
     private Set<UUID> ownerIds;
 
     // Constants
     private final static int MINIMUM_AGE = 0; // Minimum allowed age
     private static final String DEFAULT_NAME = "No nombre"; // Default name for an animal
 
-    // Constructors
 
-    // Constructor with UUID, name, and age provided (Constructor Overloading)
-    // This constructor allows creating an Animal with a specific UUID, name, and age.
-    // It's useful when you want to initialize an Animal with known attributes.
     public Animal(String id, String name, int age) {
         validateConstructor(id, name, age); // Validate the provided parameters
 
@@ -36,6 +42,34 @@ public class Animal implements Serializable {
         this.ownerIds = new HashSet<>();
     }
 
+    public Animal(String id, String name, int age, String[] ownerIds) {
+        validateConstructor(id, name, age); // Validate the provided parameters
+
+        this.id = UUID.fromString(id); // Convert the provided string to a UUID
+        this.name = name;
+        this.age = age;
+        this.vaccines = new ArrayList<>(); // Initialize the vaccines list as an empty ArrayList
+        this.ownerIds = new HashSet<>();
+        for (String ownerId : ownerIds) {
+            this.ownerIds.add(UUID.fromString(ownerId));
+        }
+    }
+
+
+    public static Animal getAnimalFromType(AnimalTypesEnum animalType,
+                                           String id,
+                                           String name,
+                                           int age,
+                                           String breed,
+                                           String[] ownerIdsArray) {
+        return switch (animalType) {
+            case CAT -> new Cat(id, name, age, ownerIdsArray);
+            case DOG -> new Dog(id, name, age, breed, ownerIdsArray);
+            case PUPPY -> new Puppy(id, name, age, breed, ownerIdsArray);
+        };
+
+    }
+
     public void addOwnerId(UUID owner) {
         ownerIds.add(owner);
     }
@@ -44,7 +78,7 @@ public class Animal implements Serializable {
         return new HashSet<>(ownerIds);
     }
 
-    private void validateConstructor(String id, String name, int age) {
+    public void validateConstructor(String id, String name, int age) {
 
         validateId(id); // Validate the provided UUID
         validateName(name); // Validate the provided name
@@ -185,15 +219,24 @@ public class Animal implements Serializable {
     // Override the toString() method to provide a formatted string representation of the Animal object
     @Override
     public String toString() {
-        return "id: " + id + " nombre: '" + name + "' edad: " + age;
+        return "id: " + id + " name: '" + name + "' age: " + age;
     }
 
     public String toCSV(String delimiter) {
+
+        String ownerIds = getOwnerIdsAsString();
+        return id + delimiter + name + delimiter + age + delimiter + ownerIds ;
+    }
+
+    protected String getOwnerIdsAsString() {
         String[] ownerIdsArray = this.ownerIds.stream()
             .map(UUID::toString)
             .toArray(String[]::new);
-        String ownerIds = "{" + String.join(",",ownerIdsArray ) + "}";
-        return id + delimiter + name + delimiter + age + delimiter + ownerIds ;
+        return "{" + String.join(",",ownerIdsArray ) + "}";
     }
+
+    public abstract String speak();
+
+    public abstract String toTextLine(String delimiter);
 
 }
