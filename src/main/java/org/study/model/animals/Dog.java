@@ -1,5 +1,8 @@
 package org.study.model.animals;
 
+import java.util.List;
+import org.study.model.Vaccine;
+
 /*
 * Inheritance is a mechanism in which one object acquires all the properties and behaviors of a parent object.
 * It is an important part of OOPs (Object Oriented programming system).
@@ -37,9 +40,8 @@ public class Dog extends Animal {
         this.breed = breed;
     }
 
-    public Dog(String id, String name, int age, String breed, String[] ownerIds) {
-        super(id, name, age, ownerIds);
-
+    public Dog(String id, String name, int age, String breed, List<Vaccine> vaccines) {
+        super(id, name, age, vaccines);
         this.breed = breed;
     }
 
@@ -68,13 +70,16 @@ public class Dog extends Animal {
             '}';
     }
 
+    @Override
     public String toCSV(String delimiter) {
+
+        String vaccineIds = "{" + String.join(",", getVaccinesIds()) + "}";
         return "Dog" + delimiter
-            + super.getId()
-            + delimiter + this.name
-            + delimiter + this.age
-            + delimiter + this.breed
-            + delimiter + this.getOwnerIdsAsString();
+            + super.getId() + delimiter
+            + super.getName() + delimiter
+            + super.getAge() + delimiter
+            + breed + delimiter
+            + vaccineIds + delimiter;
     }
 
     @Override

@@ -35,8 +35,7 @@ public enum VaccineAttributesEnum {
     ID(0, "id"),
     VOLUME(1, "volume"),
     BRAND(2, "brand"),
-    DATE_OF_APPLICATION(3, "dateOfApplication"),
-    ANIMAL_ID(4, "animalId");
+    DATE_OF_APPLICATION(3, "dateOfApplication");
 
     private int index;
     private String headerName;

@@ -1,5 +1,7 @@
 package org.study.model.animals;
 
+import java.util.List;
+import org.study.model.Vaccine;
 import org.study.services.enums.AnimalAttributesEnum;
 
 /*
@@ -31,25 +33,11 @@ public class Cat extends Animal {
 
     }
 
-    public Cat(String id, String name, int age, String[] ownerIdsArray) {
-        super(id, name, age, ownerIdsArray);
-
+    public Cat(String id, String name, int age, List<Vaccine> vaccines) {
+        super(id, name, age, vaccines);
         this.lives = 9;
 
     }
-
-    public Cat(String[] values) {
-        String id = values[AnimalAttributesEnum.ID.getIndex()];
-        String name = values[AnimalAttributesEnum.NAME.getIndex()];
-        int age = Integer.parseInt(values[AnimalAttributesEnum.AGE.getIndex()]);
-        String[] ownerIdsArray = values[AnimalAttributesEnum.CAT_OWNERS.getIndex()].split(",");
-
-        super.validateConstructor(id, name, age); // Validate the provided parameters
-
-
-
-    }
-
 
     public String speak() {
         return "Meow!";

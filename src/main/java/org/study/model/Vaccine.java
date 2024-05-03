@@ -1,4 +1,4 @@
-package org.study.model.animals;
+package org.study.model;
 
 import java.io.Serializable;
 import java.text.ParseException;
@@ -177,7 +177,7 @@ public class Vaccine implements Serializable {
         this.dateOfApplication = dateOfApplication;
     }
 
-    public UUID getID() {
+    public UUID getId() {
         return id;
     }
 
@@ -212,5 +212,9 @@ public class Vaccine implements Serializable {
             ", date of application =" + dateOfApplication +
             ", date of next application =" + getDateOfNextApplication() +
             '}';
+    }
+
+    public String toCSV(String delimiter) {
+        return id + delimiter + volumeInMl + delimiter + brand + delimiter + dateOfApplication.format(DATE_FORMAT);
     }
 }

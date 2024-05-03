@@ -5,31 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db7aead0-60d5-4771-a287-89f249b022e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/ExampleUsingServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/InheritanceAndAbstractClassExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/Caressable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Puppy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/owners/PremiumOwner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/owners/RegularOwner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/services/enums/AnimalTypesEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/services/enums/OwnerTypesEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/controllers/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/services/VaccineService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/Owner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/Vaccine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/animals.txt" beforeDir="false" afterPath="$PROJECT_DIR$/animals.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/ExampleUsingServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/ExampleUsingServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Bird.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Parrot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Puppy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Puppy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Vaccine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/Vaccine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/owners/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/owners/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/owners/PremiumOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/owners/PremiumOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/owners/RegularOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/owners/RegularOwner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/AnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/AnimalService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/AttentionQueueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/AttentionQueueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/AttentionQueueService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/FileService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/OwnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/OwnerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/AnimalAttributesEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/enums/AnimalAttributesEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/OwnerAttributesEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/enums/OwnerAttributesEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/VaccineAttributesEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/enums/VaccineAttributesEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/animals.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/animals.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/owners.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/owners.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vaccines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vaccines.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="InheritanceAndPolymorphism" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -56,9 +59,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -77,15 +80,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.JAVA-6_Inheritance_And_Polymorphism [:ExampleUsingServices.main()].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/dmorav/projects/JAVA-6_Inheritance_And_Polymorphism",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RainbowCSV.Settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.study" />
@@ -105,12 +117,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Remote">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="functionName" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
+    <configuration default="true" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -118,6 +131,14 @@
         <item itemvalue="Application.ExampleUsingServices" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -127,7 +148,41 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697668883228</updated>
+      <workItem from="1714693524015" duration="7064000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/study/controllers/FileController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/study/controllers/FileController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/study/controllers/FileController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/study/services/FileService.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

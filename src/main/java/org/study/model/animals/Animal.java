@@ -2,13 +2,10 @@ package org.study.model.animals;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 import org.study.model.Caressable;
-import org.study.services.enums.AnimalAttributesEnum;
-import org.study.services.enums.AnimalTypesEnum;
+import org.study.model.Vaccine;
 
 public abstract class Animal implements Serializable, Caressable {
 
@@ -20,12 +17,6 @@ public abstract class Animal implements Serializable, Caressable {
     protected String name;
     protected int age;
     private List<Vaccine> vaccines; // A list to store associated vaccines
-    //The private keyword is an access modifier used for attributes and methods.
-    // It means that the attribute or method can only be accessed from the same class.
-    // In this case, the attribute vaccines can only be accessed from the class Animal.
-    // The subclasses of Animal, such as Dog, cannot access the attribute vaccines directly.
-    // To access the attribute vaccines from the class Dog, we need to create a getter method in the class Animal.
-    private Set<UUID> ownerIds;
 
     // Constants
     private final static int MINIMUM_AGE = 0; // Minimum allowed age
@@ -39,44 +30,36 @@ public abstract class Animal implements Serializable, Caressable {
         this.name = name;
         this.age = age;
         this.vaccines = new ArrayList<>(); // Initialize the vaccines list as an empty ArrayList
-        this.ownerIds = new HashSet<>();
+
     }
 
-    public Animal(String id, String name, int age, String[] ownerIds) {
+    public Animal(String id, String name, int age, List<Vaccine> vaccines) {
         validateConstructor(id, name, age); // Validate the provided parameters
 
         this.id = UUID.fromString(id); // Convert the provided string to a UUID
         this.name = name;
         this.age = age;
-        this.vaccines = new ArrayList<>(); // Initialize the vaccines list as an empty ArrayList
-        this.ownerIds = new HashSet<>();
-        for (String ownerId : ownerIds) {
-            this.ownerIds.add(UUID.fromString(ownerId));
-        }
+        this.vaccines = vaccines; // Initialize the vaccines list as an empty ArrayList
+
     }
 
 
-    public static Animal getAnimalFromType(AnimalTypesEnum animalType,
+
+
+    public static Animal getAnimalFromType(String type,
                                            String id,
                                            String name,
                                            int age,
                                            String breed,
-                                           String[] ownerIdsArray) {
-        return switch (animalType) {
-            case CAT -> new Cat(id, name, age, ownerIdsArray);
-            case DOG -> new Dog(id, name, age, breed, ownerIdsArray);
-            case PUPPY -> new Puppy(id, name, age, breed, ownerIdsArray);
+                                           List<Vaccine> vaccines) {
+        return switch (type) {
+            case "Cat" -> new Cat(id, name, age, vaccines);
+            case "Dog" -> new Dog(id, name, age, breed, vaccines);
+            case "Puppy" -> new Puppy(id, name, age, breed, vaccines);
+            default -> throw new IllegalArgumentException("Invalid animal type");
         };
-
     }
 
-    public void addOwnerId(UUID owner) {
-        ownerIds.add(owner);
-    }
-
-    public Set<UUID> getOwnerIds() {
-        return new HashSet<>(ownerIds);
-    }
 
     public void validateConstructor(String id, String name, int age) {
 
@@ -204,18 +187,6 @@ public abstract class Animal implements Serializable, Caressable {
     public UUID getId() {return id;
     }
 
-    // Method to retrieve a list of unique vaccine brands associated with the animal
-    public List<String> getUniqueBrands() {
-        List<String> uniqueBrands = new ArrayList<>();
-        for (Vaccine vaccine : vaccines) {
-            // Check if the brand is not already in the list before adding it
-            if (!uniqueBrands.contains(vaccine.getBrand())) {
-                uniqueBrands.add(vaccine.getBrand());
-            }
-        }
-        return uniqueBrands;
-    }
-
     // Override the toString() method to provide a formatted string representation of the Animal object
     @Override
     public String toString() {
@@ -224,16 +195,19 @@ public abstract class Animal implements Serializable, Caressable {
 
     public String toCSV(String delimiter) {
 
-        String ownerIds = getOwnerIdsAsString();
-        return id + delimiter + name + delimiter + age + delimiter + ownerIds ;
+
+        String vaccineIds = "{" + String.join(",", getVaccinesIds()) + "}";
+        return id + delimiter + name + delimiter + age + delimiter + vaccineIds;
     }
 
-    protected String getOwnerIdsAsString() {
-        String[] ownerIdsArray = this.ownerIds.stream()
-            .map(UUID::toString)
-            .toArray(String[]::new);
-        return "{" + String.join(",",ownerIdsArray ) + "}";
+    protected List<String> getVaccinesIds() {
+        List<String> vaccineIds = new ArrayList<>();
+        for (Vaccine vaccine : vaccines) {
+            vaccineIds.add(vaccine.getId().toString());
+        }
+        return vaccineIds;
     }
+
 
     public abstract String speak();
 

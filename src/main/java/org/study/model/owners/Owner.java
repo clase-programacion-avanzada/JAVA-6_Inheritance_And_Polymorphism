@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.study.model.animals.Animal;
 import org.study.services.enums.OwnerTypesEnum;
 
 import static org.study.services.enums.OwnerTypesEnum.PREMIUM;
@@ -54,7 +55,7 @@ public class Owner implements Serializable {
     protected String zip;
     protected String country;
 
-    protected List<UUID> animalIds;
+    protected List<Animal> animals;
 
 
     public Owner (String id,
@@ -96,7 +97,50 @@ public class Owner implements Serializable {
         this.state = state;
         this.zip = zip;
         this.country = country;
-        this.animalIds = new ArrayList<>();
+        this.animals = new ArrayList<>();
+    }
+
+    public Owner (String id,
+                  String name,
+                  String username,
+                  String email,
+                  String password,
+                  int age,
+                  String phone,
+                  String address,
+                  String city,
+                  String state,
+                  String country,
+                  String zip,
+                  List<Animal> animals) {
+
+        validateConstructor(
+            id,
+            name,
+            username,
+            email,
+            password,
+            age,
+            phone,
+            address,
+            city,
+            state,
+            zip,
+            country);
+
+        this.id = UUID.fromString(id); // Generate a unique ID for the owner
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.phone = phone;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.country = country;
+        this.animals = new ArrayList<>(animals);
     }
 
 
@@ -137,10 +181,10 @@ public class Owner implements Serializable {
         this.state = state;
         this.zip = zip;
         this.country = country;
-        this.animalIds = new ArrayList<>();
+        this.animals = new ArrayList<>();
     }
 
-    public static Owner getOwnerFromType(OwnerTypesEnum type,
+    public static Owner getOwnerFromType(String type,
                                          String id,
                                          String name,
                                          String username,
@@ -152,11 +196,13 @@ public class Owner implements Serializable {
                                          String city,
                                          String state,
                                          String country,
-                                         String zipcode) {
+                                         String zipcode,
+                                         List<Animal> animals) {
 
         return switch (type) {
-            case REGULAR -> new RegularOwner(id, name, username, email, password, age, phone, address, city, state, country, zipcode);
-            case PREMIUM -> new PremiumOwner(id, name, username, email, password, age, phone, address, city, state, country, zipcode);
+            case "Regular" -> new RegularOwner(id, name, username, email, password, age, phone, address, city, state, country, zipcode, animals);
+            case "Premium" -> new PremiumOwner(id, name, username, email, password, age, phone, address, city, state, country, zipcode, animals);
+            default -> throw new IllegalStateException("Unexpected value: " + type);
         };
 
     }
@@ -431,8 +477,8 @@ public class Owner implements Serializable {
         return country;
     }
 
-    public List<UUID> getAnimalIds() {
-        return new ArrayList<>(animalIds);
+    public List<Animal> getAnimals() {
+        return animals;
     }
 
     public String getUsername() {
@@ -505,13 +551,13 @@ public class Owner implements Serializable {
         return age;
     }
 
-    public void addAnimalId(UUID animal) {
-        animalIds.add(animal);
+    public void addAnimal(Animal animal) {
+         animals.add(animal);
 
     }
 
-    public void removeAnimalId(UUID animal) {
-        animalIds.remove(animal);
+    public void removeAnimal(Animal animal) {
+        animals.remove(animal);
     }
 
     @Override
@@ -533,8 +579,8 @@ public class Owner implements Serializable {
     }
 
     public String toCSV(String delimiter) {
-        String[] animalIdsArray = this.animalIds.stream()
-            .map(UUID::toString)
+        String[] animalIdsArray = this.animals.stream()
+            .map(animal -> animal.getId().toString())
             .toArray(String[]::new);
         String animalIds = "{" + String.join(",",animalIdsArray ) + "}";
         return

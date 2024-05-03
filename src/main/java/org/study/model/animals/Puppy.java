@@ -1,5 +1,7 @@
 package org.study.model.animals;
 
+import java.util.List;
+import org.study.model.Vaccine;
 import org.study.model.animals.Dog;
 
 public class Puppy extends Dog {
@@ -12,8 +14,8 @@ public class Puppy extends Dog {
         super(id, name, age, breed);
     }
 
-    public Puppy(String id, String name, int age, String breed, String[] ownerIds) {
-        super(id, name, age, breed, ownerIds);
+    public Puppy(String id, String name, int age, String breed, List<Vaccine> vaccines) {
+        super(id, name, age, breed, vaccines);
     }
     public String play() {
         return "I'm playing!";
