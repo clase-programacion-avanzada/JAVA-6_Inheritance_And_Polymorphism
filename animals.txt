@@ -1,4 +1,0 @@
-Dog;Pancracio;5;labrador
-Dog;Justiniano;4;pug
-Cat;Anacleto;6;9
-Puppy;Brandon;1;chihuahua
