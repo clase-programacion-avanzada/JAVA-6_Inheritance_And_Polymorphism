@@ -2,19 +2,19 @@ package org.study.controllers;
 
 import org.study.exceptions.MokeponCannotAttackException;
 import org.study.model.MokeponBattle;
-import org.study.services.CreatureService;
+import org.study.services.MokeponService;
 
 public class BattleController {
 
-    private CreatureService creatureService;
+    private MokeponService mokeponService;
 
-    public BattleController(CreatureService creatureService) {
-        this.creatureService = creatureService;
+    public BattleController(MokeponService mokeponService) {
+        this.mokeponService = mokeponService;
     }
 
     public MokeponBattle getMokeponByName(String name) {
 
-        return creatureService.getMokeponByName(name);
+        return mokeponService.getMokeponByName(name);
     }
 
     public void attack(MokeponBattle attacker, MokeponBattle defender) throws MokeponCannotAttackException {

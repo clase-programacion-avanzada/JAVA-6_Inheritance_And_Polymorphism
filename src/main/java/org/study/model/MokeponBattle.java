@@ -39,11 +39,10 @@ public class MokeponBattle {
        if (damage.getSideEffect().equalsIgnoreCase("normal")) {
         
             this.changeState(damage.getSideEffect(), damage.getEffectDuration());
-        }
-        return this.BaseMokepon.reduceHealth(damage.getAmount(), damage.getType());
+       }
+
+       return this.BaseMokepon.reduceHealth(damage.getAmount(), damage.getType());
     }
-
-
 
     public void attack(MokeponBattle opponent, Damage damage) {
 
@@ -73,8 +72,10 @@ public class MokeponBattle {
     }
 
     public int getHealth() {
-        if (!this.isAlive())
+        if (!this.isAlive()) {
+            
             return 0;
+        }
         return BaseMokepon.getHealth();
     }
 

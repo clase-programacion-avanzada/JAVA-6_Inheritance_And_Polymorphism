@@ -1,10 +1,10 @@
 package org.study.model;
 
-public class BaseMokepon {
+public abstract class BaseMokepon {
     
-    private String name;
-    private int health;
-    private int basicAttackPower;
+    protected String name;
+    protected int health;
+    protected int basicAttackPower;
 
 
     public BaseMokepon(String name, int health, int basicAttackPower) {
@@ -21,19 +21,23 @@ public class BaseMokepon {
         return health;
     }
 
-    public int getbasicAttackPower() {
+    public int getBasicAttackPower() {
         return basicAttackPower;
     }
 
-    public int reduceHealth(int damage, String type) {
+    public abstract int reduceHealth(int damage, String type);
+
+    protected int reduceHealth(int damage) {
         this.health -= damage;
         return this.health;
     }
-
     public Damage getDamage() {
         return new Damage(basicAttackPower, "Normal", 0, "Normal");
     }
 
+    public final boolean isAlive() {
+        return health > 0;
+    }
 
     @Override
     public String toString() {

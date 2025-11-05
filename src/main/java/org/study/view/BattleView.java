@@ -6,11 +6,11 @@ import org.study.controllers.BattleController;
 import org.study.exceptions.MokeponCannotAttackException;
 import org.study.model.MokeponBattle;
 
-public class BattleArena {
+public class BattleView {
 
     private BattleController battleController;
 
-    public BattleArena(BattleController battleController) {
+    public BattleView(BattleController battleController) {
         this.battleController = battleController;
     }
 
@@ -25,11 +25,9 @@ public class BattleArena {
         while (!battleController.battleIsOver(mokepon1, mokepon2)) {
             System.out.println("Round " + round + ":");
             attack(mokepon1, mokepon2);
-            
-            
+
             if (!battleController.battleIsOver(mokepon2)) {
-                
-                System.out.println(mokepon2.getName() + " Health: " + mokepon2.getHealth());
+
                 attack(mokepon2, mokepon1);
             }
             

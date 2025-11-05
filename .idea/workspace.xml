@@ -5,46 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db7aead0-60d5-4771-a287-89f249b022e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/Airplane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/DragonMokepon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/Flyable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animals.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/ExampleUsingServices.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/InheritanceAndAbstractClassExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/controllers/FileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/exceptions/ExitMethodException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/exceptions/NotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/exceptions/UserNameAlreadyTakenException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/Caressable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/Vaccine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Cat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Dog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/animals/Puppy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/owners/FamilyOwner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/owners/Owner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/owners/PremiumOwner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/owners/RegularOwner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/AnimalService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/FileService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/OwnerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/VaccineService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/AnimalAttributesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/AnimalTypesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/OwnerAttributesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/OwnerTypesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/enums/VaccineAttributesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/animals.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/animals.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/animals_report.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/owners.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/owners.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vaccines.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/controllers/BattleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/controllers/BattleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/exceptions/BaseMokeponNotExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/exceptions/BaseMokeponNotExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/BaseMokepon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/BaseMokepon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/ElectricMokepon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/ElectricMokepon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/FireMokepon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/FireMokepon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/MokeponBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/MokeponBattle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/CreatureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/MokeponService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/view/BattleArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/view/BattleView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mokepons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mokepons.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +80,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "ClassRoom",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/dmorav/projects/JAVA-6_Inheritance_And_Polymorphism",
     "node.js.detected.package.eslint": "true",
@@ -114,7 +88,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
@@ -168,6 +142,7 @@
       <workItem from="1729511581020" duration="2929000" />
       <workItem from="1729552965556" duration="614000" />
       <workItem from="1762299893077" duration="767000" />
+      <workItem from="1762343731915" duration="5631000" />
     </task>
     <servers />
   </component>
@@ -186,6 +161,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/study/controllers/FileController.java</url>
           <line>80</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/study/model/FireMokepon.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

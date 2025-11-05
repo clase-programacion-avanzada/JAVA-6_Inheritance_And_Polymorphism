@@ -1,5 +1,9 @@
 package org.study.services;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.study.model.ElectricMokepon;
+import org.study.model.FireMokepon;
 import org.study.model.MokeponBattle;
 import org.study.exceptions.BaseMokeponNotExistsException;
 import org.study.model.BaseMokepon;
@@ -7,30 +11,52 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class CreatureService {
+public class MokeponService {
 
     private Map<String, BaseMokepon> mokeponsByName = new HashMap<>();
     //private Map<String, FireMokepon> fireMokeponsByName = new HashMap<>();
     //private Map<String, ElectricMokepon> electricMokeponsByName = new HashMap<>();
 
-    public CreatureService() {
+    public MokeponService() {
         loadMokepons();
     }
 
     private void loadMokepons() {
         // Load Mokepons from CSV or any other source
         // For simplicity, we will hardcode some Mokepons here
-        BaseMokepon charizard = new BaseMokepon("Chorizard",  150, 25);
+        BaseMokepon charizard =
+            new FireMokepon("Chorizard",  150, 25, 0.3f, 5);
         mokeponsByName.put(charizard.getName().toLowerCase(), charizard);
-        BaseMokepon blastoise = new BaseMokepon("Blustoise", 160, 22);
-        mokeponsByName.put(blastoise.getName().toLowerCase(), blastoise);
-        BaseMokepon pidgeot = new BaseMokepon("Pidgeot", 130, 24);
-        mokeponsByName.put(pidgeot.getName().toLowerCase(), pidgeot);
-        BaseMokepon pokachu = new BaseMokepon("Pokachu", 125, 28);
+        BaseMokepon pokachu =
+            new ElectricMokepon("Pokachu", 125, 28, 1);
         mokeponsByName.put(pokachu.getName().toLowerCase(), pokachu);
-        BaseMokepon vaporeon = new BaseMokepon("Vaporeon", 180, 20);
-        mokeponsByName.put(vaporeon.getName().toLowerCase(), vaporeon);
 
+    }
+
+    public List<BaseMokepon> getFireMokepons() {
+
+        List<BaseMokepon> mokepons = new ArrayList<>();
+
+        for (BaseMokepon mokepon : mokeponsByName.values()) {
+            if (mokepon instanceof FireMokepon) {
+                mokepons.add(mokepon);
+            }
+        }
+
+        return mokepons;
+
+    }
+
+    public List<BaseMokepon> getMokeponsByType(String type) {
+        List<BaseMokepon> mokepons = new ArrayList<>();
+
+        for (BaseMokepon mokepon : mokeponsByName.values()) {
+            if (mokepon.getClass().getSimpleName().equalsIgnoreCase(type)) {
+                mokepons.add(mokepon);
+            }
+        }
+
+        return mokepons;
     }
 
     public MokeponBattle getMokeponByName(String name) {

@@ -1,36 +1,28 @@
 package org.study.model;
 
-public class ElectricMokepon {
+public class ElectricMokepon extends BaseMokepon {
 
-    private String name;
-    private int health;
+
     private int basicAttackPower;
     private int paralyzeChance;
 
 
     public ElectricMokepon(String name, int health, int basicAttackPower, int paralyzeChance) {
-        this.name = name;
-        this.health = health;
+        super(name,health,basicAttackPower);
         this.basicAttackPower = basicAttackPower;
         this.paralyzeChance = paralyzeChance;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public int getbasicAttackPower() {
-        return basicAttackPower;
-    }
 
     public int getParalyzeChance() {
         return paralyzeChance;
     }
 
+
+    @Override
+    public int reduceHealth(int damage, String type) {
+        return 0;
+    }
 
     @Override
     public String toString() {
