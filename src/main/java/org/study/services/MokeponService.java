@@ -2,11 +2,11 @@ package org.study.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.study.model.ElectricMokepon;
-import org.study.model.FireMokepon;
+import org.study.model.mokepon.ElectricMokepon;
+import org.study.model.mokepon.FireMokepon;
 import org.study.model.MokeponBattle;
 import org.study.exceptions.BaseMokeponNotExistsException;
-import org.study.model.BaseMokepon;
+import org.study.model.mokepon.BaseMokepon;
 import java.util.HashMap;
 import java.util.Map;
 

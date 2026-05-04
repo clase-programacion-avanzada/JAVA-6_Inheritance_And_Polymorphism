@@ -1,6 +1,7 @@
 package org.study.model;
 
 import org.study.exceptions.MokeponCannotAttackException;
+import org.study.model.mokepon.BaseMokepon;
 
 public class MokeponBattle {
     

@@ -5,25 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db7aead0-60d5-4771-a287-89f249b022e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/Airplane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/DragonMokepon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/Flyable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/study/model/WaterMokepon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/study/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/controllers/BattleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/controllers/BattleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/exceptions/BaseMokeponNotExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/exceptions/BaseMokeponNotExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/exceptions/MokeponCannotAttackException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/exceptions/MokeponCannotAttackException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/BaseMokepon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/BaseMokepon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/ElectricMokepon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/ElectricMokepon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/FireMokepon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/FireMokepon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/model/MokeponBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/model/MokeponBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/services/CreatureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/services/MokeponService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/study/view/BattleArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/study/view/BattleView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mokepons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mokepons.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/dmorav/projects/JAVA-6_Inheritance_And_Polymorphism" value="2WxKdwwP0Swlh27e2RKGtqdqCKV" />
+    </persistenceIdMap>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -59,6 +57,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -70,31 +72,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.JAVA-6_Inheritance_And_Polymorphism [:ExampleUsingServices.main()].executor": "Run",
-    "Gradle.JAVA-6_Inheritance_And_Polymorphism [:InheritanceAndAbstractClassExample.main()].executor": "Run",
-    "Gradle.JAVA-6_Inheritance_And_Polymorphism [:org.study.Main.main()].executor": "Run",
-    "Gradle.JAVA-6_Inheritance_And_Polymorphism.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/dmorav/projects/JAVA-6_Inheritance_And_Polymorphism",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.JAVA-6_Inheritance_And_Polymorphism [:ExampleUsingServices.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JAVA-6_Inheritance_And_Polymorphism [:InheritanceAndAbstractClassExample.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JAVA-6_Inheritance_And_Polymorphism [:org.study.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JAVA-6_Inheritance_And_Polymorphism.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dmorav/projects/JAVA-6_Inheritance_And_Polymorphism&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.study" />
@@ -123,8 +128,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
@@ -142,7 +147,10 @@
       <workItem from="1729511581020" duration="2929000" />
       <workItem from="1729552965556" duration="614000" />
       <workItem from="1762299893077" duration="767000" />
-      <workItem from="1762343731915" duration="5631000" />
+      <workItem from="1762343731915" duration="6214000" />
+      <workItem from="1762953541854" duration="1167000" />
+      <workItem from="1777896802024" duration="1954000" />
+      <workItem from="1777899120835" duration="990000" />
     </task>
     <servers />
   </component>
@@ -163,9 +171,15 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/study/model/FireMokepon.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/study/model/mokepon/FireMokepon.java</url>
           <line>31</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/org/study/model/mokepon/BaseMokepon.java</url>
+          <line>7</line>
+          <properties field="health" class="org.study.model.BaseMokepon" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -173,5 +187,13 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

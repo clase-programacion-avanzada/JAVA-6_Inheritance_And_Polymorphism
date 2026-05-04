@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import org.study.controllers.BattleController;
 import org.study.model.Airplane;
-import org.study.model.BaseMokepon;
-import org.study.model.DragonMokepon;
-import org.study.model.ElectricMokepon;
-import org.study.model.FireMokepon;
+import org.study.model.mokepon.BaseMokepon;
+import org.study.model.mokepon.DragonMokepon;
+import org.study.model.mokepon.ElectricMokepon;
+import org.study.model.mokepon.FireMokepon;
 import org.study.model.Flyable;
 import org.study.services.MokeponService;
 import org.study.view.BattleView;
@@ -30,7 +30,8 @@ public class Main {
 
         List<Flyable> flyables = new ArrayList<>();
 
-        flyables.add(new DragonMokepon("Charizandra", 100,100, 0.3f, 3));
+        flyables.add(
+            new DragonMokepon("Charizandra", 100,100, 0.3f, 3));
 
         flyables.add(new Airplane());
 
@@ -44,16 +45,18 @@ public class Main {
         }
 
         List<BaseMokepon> mokepons = new ArrayList<>();
-
+        List<BaseMokepon> fireMokepons = new ArrayList<>();
         for (BaseMokepon mokepon : mokepons) {
 
             System.out.println(mokepon.getName());
             System.out.println(mokepon.getBasicAttackPower());
             System.out.println(mokepon.getHealth());
+            System.out.println(mokepon.reduceHealth(10, "Grass"));
 
             if (mokepon instanceof FireMokepon fireMokepon) {
                 System.out.println("BurnChance: ");
                 System.out.println(fireMokepon.getBurnChance());
+                fireMokepons.add(fireMokepon);
             }
 
             if (mokepon instanceof ElectricMokepon electricMokepon) {
@@ -63,7 +66,12 @@ public class Main {
 
             switch (mokepon) {
                 case FireMokepon firemokepon -> {
-
+                    System.out.println("BurnChance: ");
+                    System.out.println(firemokepon.getBurnChance());
+                }
+                case ElectricMokepon electricMokepon -> {
+                    System.out.println("ParalyzeChance: ");
+                    System.out.println(electricMokepon.getParalyzeChance());
                 }
                 default -> {
 
